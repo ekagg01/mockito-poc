@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 public class MyClassTest {
 
     MyClass classTest = new MyClass();
-  /*  @BeforeClass
+    @BeforeClass
     public static void setupBeforeClass(){
         System.out.println("Start of test class");
     }
@@ -20,7 +20,7 @@ public class MyClassTest {
     @Before
     public void setup(){
         System.out.println("starttime :"+ System.currentTimeMillis());
-    }*/
+    }
 
     @Test
     public void testMultiply(){
@@ -35,7 +35,7 @@ public class MyClassTest {
         classTest.multiply(1000, 5);
     }
 
-   /* @After
+    @After
     public void tearDown(){
         System.out.println("endTime :"+ System.currentTimeMillis());
     }
@@ -43,5 +43,5 @@ public class MyClassTest {
     @AfterClass
     public static void tearDownAfterClass(){
         System.out.println("End of test class");
-    }*/
+    }
 }

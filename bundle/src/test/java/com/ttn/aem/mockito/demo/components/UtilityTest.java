@@ -44,21 +44,4 @@ public class UtilityTest {
 
     }
 
-    @Test
-    public void testIsExternalLink(){
-        assertEquals(utility.isExternalLink("http://www.facebook.com"),true);
-        assertEquals(utility.isExternalLink("https://www.facebook.com"),true);
-        assertEquals(utility.isExternalLink(""),false);
-        assertNotEquals(utility.isExternalLink(null),true);
-        assertEquals(utility.isExternalLink("qa.intelligrape.net/content/sih/en/test-home-page01.html"),false);
-    }
-
-    @Test
-    public void testAddEllipsis(){
-        assertEquals(utility.addEllipsis("Note that you must use @RunWith(MockitoJUnitRunner.class)", 2),"No...");
-        assertNotNull(utility.addEllipsis("ghjk ghjk ghj",30));
-        assertEquals(utility.addEllipsis("",0),"");
-        assertNull(utility.addEllipsis(null,10));
-    }
-
 }

@@ -1,0 +1,7 @@
+
+fsquid:S1226"EIntroduce a new variable instead of reusing the parameter "pagePath".(‡ôı”ÿÿÿÿÿ8ÎÛ¸ğÅ+
+^squid:S3358"DExtract this nested ternary operation into an independent statement.(ùéë¯ıÿÿÿÿ
+Xsquid:S1226"CIntroduce a new variable instead of reusing the parameter "string".(À¾ØÓ
+Tsquid:S1118":Add a private constructor to hide the implicit public one.(¹‹ó¿ıÿÿÿÿ
+ksquid:S3027"JPut single-quotes around '/' to use the faster "lastIndexOf(char)" method.(é¬Öîùÿÿÿÿ8ÎÛ¸ğÅ+
+^squid:S3358"DExtract this nested ternary operation into an independent statement.(ÑÈ·—üÿÿÿÿ

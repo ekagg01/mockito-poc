@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><metatype:MetaData xmlns:metatype="http://www.osgi.org/xmlns/metatype/v1.0.0" localization="OSGI-INF/metatype/metatype">
+    <OCD id="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService" name="%com.ttn.aem.mockito.demo.service.AdminConsoleConfigService.name" description="%com.ttn.aem.mockito.demo.service.AdminConsoleConfigService.description">
+        <AD id="api.endPoint" type="String" name="%api.endPoint.name" description="API End point"/>
+        <AD id="api.context" type="String" name="%api.context.name" description="API Context"/>
+        <AD id="form.createUser" type="String" name="%form.createUser.name" description="Form path for user creation"/>
+        <AD id="forum.details" type="String" name="%forum.details.name" description="Forum details Page path"/>
+    </OCD>
+    <OCD id="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl" name="TW AEM Samples - Basic OSGi Service" description="Sample implementation of an OSGi service">
+        <AD id="service-name" type="String" default="my-sample" name="Service Name" description="This is an example property which is used to uniquely identify the service impl by name."/>
+        <AD id="world" type="String" default="earth" name="World" description="The world"/>
+    </OCD>
+    <OCD id="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet" name="%com.ttn.aem.mockito.demo.assignment.ExamplePageServlet.name" description="%com.ttn.aem.mockito.demo.assignment.ExamplePageServlet.description">
+        <AD id="sling.servlet.paths" type="String" default="/bin/myPageServlet" name="%sling.servlet.paths.name" description="%sling.servlet.paths.description"/>
+        <AD id="sling.servlet.methods" type="String" default="POST" name="%sling.servlet.methods.name" description="%sling.servlet.methods.description"/>
+    </OCD>
+    <OCD id="com.ttn.aem.mockito.demo.servlets.ExampleServlet" name="%com.ttn.aem.mockito.demo.servlets.ExampleServlet.name" description="%com.ttn.aem.mockito.demo.servlets.ExampleServlet.description">
+        <AD id="sling.servlet.paths" type="String" default="/bin/mySearchServlet" name="%sling.servlet.paths.name" description="%sling.servlet.paths.description"/>
+        <AD id="sling.servlet.methods" type="String" default="POST" name="%sling.servlet.methods.name" description="%sling.servlet.methods.description"/>
+    </OCD>
+    <Designate pid="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService">
+        <Object ocdref="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService"/>
+    </Designate>
+    <Designate pid="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl" factoryPid="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl">
+        <Object ocdref="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl"/>
+    </Designate>
+    <Designate pid="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet">
+        <Object ocdref="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet"/>
+    </Designate>
+    <Designate pid="com.ttn.aem.mockito.demo.servlets.ExampleServlet">
+        <Object ocdref="com.ttn.aem.mockito.demo.servlets.ExampleServlet"/>
+    </Designate>
+</metatype:MetaData>

@@ -37,15 +37,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-
                 <groupId>com.adobe.aem</groupId>
-
-                <artifactId>aem-api</artifactId>
-
-                <version>6.0.0.1</version>
-
+                <artifactId>uber-jar</artifactId>
+                <version>6.2.0</version>
+                <classifier>apis</classifier>
                 <scope>provided</scope>
-
             </dependency>
             <dependency>
                 <groupId>org.osgi</groupId>
@@ -135,6 +131,27 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>1.12</version>
+                    <executions>
+                        <execution>
+                            <id>add-test-resource</id>
+                            <phase>generate-test-sources</phase>
+                            <goals>
+                                <goal>add-test-resource</goal>
+                            </goals>
+                            <configuration>
+                                <resources>
+                                    <resource>
+                                        <directory>target/scr-plugin-generated</directory>
+                                    </resource>
+                                </resources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.felix</groupId>
                     <artifactId>maven-scr-plugin</artifactId>

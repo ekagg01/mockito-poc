@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.components.WeatherPrintingComponent" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.components.WeatherPrintingComponent"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.components.WeatherPrintingComponent" private="false"/>
+        <reference name="weatherService" interface="com.ttn.aem.mockito.demo.service.WeatherService" cardinality="1..1" policy="static" bind="bindWeatherService" unbind="unbindWeatherService" checked="true" strategy="event"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService"/>
+        </service>
+        <property name="api.endPoint" private="false"/>
+        <property name="api.context" private="false"/>
+        <property name="form.createUser" private="false"/>
+        <property name="forum.details" private="false"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.SimpleService"/>
+        </service>
+        <property name="service-name" type="String" value="my-sample" private="false"/>
+        <property name="world" type="String" value="earth" private="false"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl" private="false"/>
+        <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory" checked="true" strategy="event"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.service.impl.WeatherServiceImpl">
+        <implementation class="com.ttn.aem.mockito.demo.service.impl.WeatherServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.WeatherService"/>
+        </service>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.service.impl.WeatherServiceImpl" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet">
+        <implementation class="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths" value="/bin/myPageServlet" private="false"/>
+        <property name="sling.servlet.methods" value="POST" private="false"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet" private="false"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.servlets.ExampleServlet">
+        <implementation class="com.ttn.aem.mockito.demo.servlets.ExampleServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths" value="/bin/mySearchServlet" private="false"/>
+        <property name="sling.servlet.methods" value="POST" private="false"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.servlets.ExampleServlet" private="false"/>
+    </scr:component>
+</components>
