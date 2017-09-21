@@ -1,12 +1,18 @@
 package com.ttn.aem.mockito.demo.components;
 
 import com.adobe.cq.sightly.WCMUse;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.tagging.JcrTagManagerFactory;
 import com.ttn.aem.mockito.demo.Model.HeroBannerModel;
+import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import javax.jcr.Session;
+import java.util.*;
 
 /**
  * Created by pooja on 13/2/17.

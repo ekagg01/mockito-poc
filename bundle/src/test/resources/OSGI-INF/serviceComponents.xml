@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0">
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.CustomWorkflowStep">
+        <implementation class="com.ttn.aem.mockito.demo.CustomWorkflowStep"/>
+        <service servicefactory="false">
+            <provide interface="com.adobe.granite.workflow.exec.WorkflowProcess"/>
+        </service>
+        <property name="service.description" type="String" value="Send mail on node deletion"/>
+        <property name="service.vendor" type="String" value="TTN"/>
+        <property name="process.label" type="String" value="Email send on node deletion"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.CustomWorkflowStep"/>
+        <reference name="messageGatewayService" interface="com.day.cq.mailer.MessageGatewayService" cardinality="1..1" policy="static" bind="bindMessageGatewayService" unbind="unbindMessageGatewayService"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.components.TestScheduler">
+        <implementation class="com.ttn.aem.mockito.demo.components.TestScheduler"/>
+        <service servicefactory="false">
+            <provide interface="java.lang.Runnable"/>
+        </service>
+        <property name="scheduler.period" type="Long" value="20"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.components.TestScheduler"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.components.WeatherPrintingComponent" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.components.WeatherPrintingComponent"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.components.WeatherPrintingComponent"/>
+        <reference name="weatherService" interface="com.ttn.aem.mockito.demo.service.WeatherService" cardinality="1..1" policy="static" bind="bindWeatherService" unbind="unbindWeatherService"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.impl.HelloServiceImpl">
+        <implementation class="com.ttn.aem.mockito.demo.impl.HelloServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.HelloService"/>
+        </service>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.impl.HelloServiceImpl"/>
+        <reference name="repository" interface="org.apache.sling.jcr.api.SlingRepository" cardinality="1..1" policy="static" bind="bindRepository" unbind="unbindRepository"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="com.ttn.aem.mockito.demo.impl.MyServiceImpl">
+        <implementation class="com.ttn.aem.mockito.demo.impl.MyServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.MyService"/>
+        </service>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.impl.MyServiceImpl"/>
+        <reference name="queryBuilder" interface="com.day.cq.search.QueryBuilder" cardinality="1..1" policy="static" bind="bindQueryBuilder" unbind="unbindQueryBuilder"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="Admin resource resolver">
+        <implementation class="com.ttn.aem.mockito.demo.impl.ResourceResolverImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.ResourceResolverService"/>
+        </service>
+        <property name="service.pid" value="Admin resource resolver"/>
+        <reference name="resourceFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceFactory" unbind="unbindResourceFactory"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.impl.SimpleServiceImpl" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.impl.SimpleServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.SimpleService"/>
+        </service>
+        <property name="service-name" type="String" value="my-sample"/>
+        <property name="world" type="String" value="earth"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.impl.SimpleServiceImpl"/>
+        <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.impl.WeatherPrintingComponent" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.impl.WeatherPrintingComponent"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.impl.WeatherPrintingComponent"/>
+        <reference name="weatherService" interface="com.ttn.aem.mockito.demo.service.WeatherService" cardinality="1..1" policy="static" bind="bindWeatherService" unbind="unbindWeatherService"/>
+    </scr:component>
+    <scr:component enabled="true" immediate="true" name="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService"/>
+        </service>
+        <property name="api.endPoint"/>
+        <property name="api.context"/>
+        <property name="form.createUser"/>
+        <property name="forum.details"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.service.AdminConsoleConfigService"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl" activate="activate">
+        <implementation class="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.SimpleService"/>
+        </service>
+        <property name="service-name" type="String" value="my-sample"/>
+        <property name="world" type="String" value="earth"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.service.impl.SimpleServiceImpl"/>
+        <reference name="resourceResolverFactory" interface="org.apache.sling.api.resource.ResourceResolverFactory" cardinality="1..1" policy="static" bind="bindResourceResolverFactory" unbind="unbindResourceResolverFactory"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.service.impl.WeatherServiceImpl">
+        <implementation class="com.ttn.aem.mockito.demo.service.impl.WeatherServiceImpl"/>
+        <service servicefactory="false">
+            <provide interface="com.ttn.aem.mockito.demo.service.WeatherService"/>
+        </service>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.service.impl.WeatherServiceImpl"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.servlets.ExampleAssetServlet">
+        <implementation class="com.ttn.aem.mockito.demo.servlets.ExampleAssetServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.resourceTypes" value="cq/Page"/>
+        <property name="sling.servlet.selectors" value="references"/>
+        <property name="sling.servlet.extensions" value="json"/>
+        <property name="sling.servlet.methods" value="GET"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.servlets.ExampleAssetServlet"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.servlets.IndustryTags">
+        <implementation class="com.ttn.aem.mockito.demo.servlets.IndustryTags"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths" value="/bin/sih/tags/industry"/>
+        <property name="sling.servlet.methods" value="GET"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.servlets.IndustryTags"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet">
+        <implementation class="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths" value="/bin/myPageServlet"/>
+        <property name="sling.servlet.methods" value="POST"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.assignment.ExamplePageServlet"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.servlets.ExamplePageServlet">
+        <implementation class="com.ttn.aem.mockito.demo.servlets.ExamplePageServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths" value="/bin/myPageServlet"/>
+        <property name="sling.servlet.methods" value="POST"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.servlets.ExamplePageServlet"/>
+    </scr:component>
+    <scr:component enabled="true" name="com.ttn.aem.mockito.demo.servlets.ExampleServlet">
+        <implementation class="com.ttn.aem.mockito.demo.servlets.ExampleServlet"/>
+        <service servicefactory="false">
+            <provide interface="javax.servlet.Servlet"/>
+        </service>
+        <property name="sling.servlet.paths" value="/bin/mySearchServlet"/>
+        <property name="sling.servlet.methods" value="POST"/>
+        <property name="service.pid" value="com.ttn.aem.mockito.demo.servlets.ExampleServlet"/>
+    </scr:component>
+</components>

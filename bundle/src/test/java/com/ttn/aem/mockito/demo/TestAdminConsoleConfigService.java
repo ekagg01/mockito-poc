@@ -1,7 +1,8 @@
-package com.ttn.aem.mockito.demo.service.impl;
+package com.ttn.aem.mockito.demo;
 
 import com.ttn.aem.mockito.demo.service.AdminConsoleConfigService;
 import io.wcm.testing.mock.aem.junit.AemContext;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +20,7 @@ import static org.mockito.Mockito.when;
  * Created by ttn on 24/5/17.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class AdminConsoleConfigServiceTest {
+public class TestAdminConsoleConfigService {
 
 
     @Mock

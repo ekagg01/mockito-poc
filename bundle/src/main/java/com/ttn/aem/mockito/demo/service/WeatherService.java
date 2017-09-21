@@ -1,7 +1,6 @@
 package com.ttn.aem.mockito.demo.service;
 
 import java.io.IOException;
-
 /**
  * Service to provide weather details.
  */
